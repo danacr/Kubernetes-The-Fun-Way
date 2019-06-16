@@ -20,7 +20,7 @@ We will be running ceph, it is necessary to run a kernel which supports [RBD](ht
 
 Download the precompiled kernel to all the devices and install it:
 ```
-wget https://github.com/danacr/kubernetes-the-fun-way/blob/master/linux-image-next-sunxi64_5.89_arm64.deb
+wget https://github.com/danacr/kubernetes-the-fun-way/releases/download/0.1/linux-image-next-sunxi64_5.89_arm64.deb
 dpkg -i linux-image-next-sunxi64_5.89_arm64.deb
 ```
 
