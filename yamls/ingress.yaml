@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: argo-tunnel
+  labels:
+    ingress: argo-tunnel
+  name: azure-vote-front
+spec:
+  tls:
+  - hosts:
+    - cluster.mad.md
+    secretName: mad.md
+  rules:
+  - host: cluster.mad.md
+    http:
+      paths:
+      - backend:
+          serviceName: azure-vote-front
+          servicePort: http
