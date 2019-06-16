@@ -36,4 +36,4 @@ Adminer available at: http://localhost:8080/. Server: `azure-vote-back`, usernam
 
 ![adminer](../images/adminer.png)
 
-That's it! I hope you had fun while creating your home Kubernetes cluster.
+That's it! I hope you had fun while creating your portable Kubernetes cluster.
