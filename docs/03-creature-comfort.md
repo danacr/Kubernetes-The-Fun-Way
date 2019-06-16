@@ -12,6 +12,8 @@ k3s kubectl config view --raw >clusterconfig.yaml
 
 Grab it on your local machine using SCP: `scp root@192.168.178.100:clusterconfig.yaml /home/dan/`
 
+Add the cluster, context and user from `clusterconfig.yaml`to your local kubeconfig, making sure you change the cluster ip from `localhost` to the one of the master node.
+
 ![local](../images/local.png)
 
 Since we are still running helm which requires tiller, it needs to be installed on the cluster.
