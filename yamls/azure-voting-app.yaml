@@ -83,7 +83,7 @@ kind: Deployment
 metadata:
   name: azure-vote-front
 spec:
-  replicas: 1
+  replicas: 7
   strategy:
     rollingUpdate:
       maxSurge: 1
