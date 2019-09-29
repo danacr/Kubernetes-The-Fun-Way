@@ -14,7 +14,63 @@ Grab it on your local machine using SCP: `scp root@192.168.178.100:clusterconfig
 
 Add the cluster, context and user from `clusterconfig.yaml`to your local kubeconfig, making sure you change the cluster ip from `localhost` to the one of the master node.
 
+```
+wget https://github.com/danacr/drone-cloudflared/releases/download/v0.2/cloudflared-arm64.tar.gz
+tar xf cloudflared-arm64.tar.gz -C /usr/local/bin/
+cloudflared tunnel login
+```
+
+Cloudflare will refuse to connect to https://localhost:6443 if you don't add the server-ca certificate to your trusted certificates:
+
+```
+cp /var/lib/rancher/k3s/server/tls/server-ca.crt /usr/local/share/ca-certificates/kubernetes.crt
+update-ca-certificates
+```
+
+Now we can add the right config file for the cloudflare runnel
+
+```
+cp yamls/config.yml /etc/cloudflared/ #make sure to change the hostname to your preferred subdomain on cloudflare
+cp .cloudflared/cert.pem /etc/cloudflared/
+cloudflared service install
+```
+
+If everything went well, we have to add an entry to out local `.kube/config` which will allows us to connect to our cluster. I think it is easier that I show you my config instead of just explaining this part:
+
+```yaml
+apiVersion: v1
+clusters:
+  - cluster:
+      certificate-authority-data: "the certificate we extracted using k3s kubectl config view --raw >clusterconfig.yaml"
+      server: https://192.168.86.100:6443 # the ip address of your master node on your local network
+    name: k3s # I use this as the local network config
+  - cluster:
+      insecure-skip-tls-verify: false # this is required as cloudflare overwrites our certificate when it is proxying
+      server: https://k3s.mad.md # the hostname you specified in the config.yml for cloudflare
+    name: k3s-remote # this one uses cloudlfared to connect back to the cluster
+contexts:
+  - context:
+      cluster: k3s
+      user: k3s
+    name: k3s
+  - context:
+      cluster: k3s-remote
+      user: k3s # we are using the same user as the local connection, so there is no need to specify it twice
+    name: k3s-remote
+current-context: k3s
+kind: Config
+preferences: {}
+users:
+  - name: k3s
+    user:
+      password: "password created by k3s"
+      username: admin
+```
+
+Congratulations! Now you should be able to access your cluster remotely.
+
 ![local](../images/local.png)
+We will run tillerless helm as we don't want to forward another port and create more potential vulnerabilities for our cluster
 
 Since we are still running helm which requires tiller, it needs to be installed on the cluster.
 
@@ -62,6 +118,7 @@ kubectl apply -f yamls/arm-dashboard.yaml
 ```
 
 Get the service account token using:
+
 ```
 kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep kubernetes-dashboard | awk '{print $1}')
 ```
