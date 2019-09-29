@@ -5,16 +5,16 @@ metadata:
     kubernetes.io/ingress.class: argo-tunnel
   labels:
     ingress: argo-tunnel
-  name: azure-vote-front
+  name: blog
 spec:
   tls:
-  - hosts:
-    - cluster.mad.md
-    secretName: mad.md
+    - hosts:
+        - blog.mad.md
+      secretName: mad.md
   rules:
-  - host: cluster.mad.md
-    http:
-      paths:
-      - backend:
-          serviceName: azure-vote-front
-          servicePort: http
+    - host: blog.mad.md
+      http:
+        paths:
+          - backend:
+              serviceName: wordpress
+              servicePort: http

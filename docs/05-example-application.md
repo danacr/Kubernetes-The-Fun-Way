@@ -4,11 +4,12 @@
 
 After spending the entire time debugging configuration and rebuilding docker images, I was not in the mood of writing a sample application that leverages ingress and persistent volume claims.
 
-I remembered that Azure had some simple voting application as an example for deploying on their kubernetes clusters: https://github.com/Azure-Samples/azure-voting-app. 
+I remembered that Azure had some simple voting application as an example for deploying on their kubernetes clusters: https://github.com/Azure-Samples/azure-voting-app.
 
 Forked, rebuilt all the docker images with arm64 support, and their dependencies for your convenience:
 
 > Note, if you would like to know how to build arm64 images on your amd64 machine, please see [this post](https://medium.com/@carlosedp/cross-building-arm64-images-on-docker-desktop-254d1e0bc1f9)
+> Docker Community Edition 2.0.5.0 2019-06-12
 
 ```
 kubectl apply -f yamls/azure-voting-app.yaml
@@ -32,6 +33,7 @@ I have also included [adminer](https://hub.docker.com/_/adminer/) thanks to [ace
 kubectl apply -f yamls/adminer.yaml
 kubectl port-forward svc/adminer 8080:80
 ```
+
 Adminer available at: http://localhost:8080/. Server: `azure-vote-back`, username: `root`, password: `Password12`
 
 ![adminer](../images/adminer.png)

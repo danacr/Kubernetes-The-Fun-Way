@@ -1,0 +1,50 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    name: wordpress
+  name: wordpress
+spec:
+  ports:
+    - port: 80
+      name: http
+  selector:
+    name: wordpress
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wordpress
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: wordpress
+    matchExpressions:
+      - { key: name, operator: In, values: [wordpress] }
+  template:
+    metadata:
+      labels:
+        name: wordpress
+    spec:
+      containers:
+        - name: wordpress
+          image: wordpress:5-php7.3-apache
+          ports:
+            - containerPort: 80
+              name: wordpress
+          volumeMounts:
+            - mountPath: /var/www/html
+              name: wordpress
+          env:
+            - name: WORDPRESS_DB_PASSWORD
+              value: SOME_RANDOM_PASSWORD
+            - name: WORDPRESS_DB_USER
+              value: root
+            - name: WORDPRESS_DB_HOST
+              value: mariadb
+      volumes:
+        - name: "wordpress"
+          hostPath:
+            path: "/mnt/data/web"

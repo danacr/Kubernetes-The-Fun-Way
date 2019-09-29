@@ -1,0 +1,123 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: mariadb
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: mariadb
+  serviceName: "mariadb"
+  replicas: 1
+  podManagementPolicy: OrderedReady
+  template:
+    metadata:
+      labels:
+        app: mariadb
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "9104"
+    spec:
+      terminationGracePeriodSeconds: 30
+      initContainers:
+        - name: init-config
+          command: ["/bin/bash", "/etc/mysql/conf.d-configmap/init.sh"]
+          env:
+            - name: K8S_NODE_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: spec.nodeName
+            - name: POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            - name: POD_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
+            - name: DATADIR
+              value: /data/db
+            - name: AUTO_NEW_CLUSTER
+              value: "false"
+          workingDir: /etc/mysql/conf.d-configmap
+          volumeMounts:
+            - name: mariadb
+              mountPath: /data
+            - name: conf-readonly
+              mountPath: /etc/mysql/conf.d-configmap
+            - name: conf
+              mountPath: /etc/mysql/conf.d
+            - name: initdb
+              mountPath: /docker-entrypoint-initdb.d
+          image: mariadb:10.2.25@sha256:fcc5a71cf65175ca30827f37b0193ad15a82c9f93700eee601cf2613c2131f96
+      containers:
+        - name: mariadb
+          image: mariadb:10.2.25@sha256:fcc5a71cf65175ca30827f37b0193ad15a82c9f93700eee601cf2613c2131f96
+          ports:
+            - containerPort: 3306
+              name: mysql
+            - containerPort: 4444
+              name: sst
+            - containerPort: 4567
+              name: replication
+            - containerPort: 4567
+              protocol: UDP
+              name: replicationudp
+            - containerPort: 4568
+              name: ist
+          env:
+            - name: MYSQL_ROOT_HOST
+              value: "localhost"
+            - name: MYSQL_ALLOW_EMPTY_PASSWORD
+              value: "yes"
+            - name: MYSQL_INITDB_SKIP_TZINFO
+              value: "yes"
+          readinessProbe:
+            exec:
+              command:
+                - /bin/sh
+                - -ec
+                - >-
+                  '['
+                  ON =
+                  $(mysql -e "SHOW STATUS LIKE 'wsrep_ready';" -N -B | sed 's/.*ON/ON/')
+                  ']'
+            initialDelaySeconds: 30
+          livenessProbe:
+            exec:
+              command:
+                - mysql
+                - -e
+                - "SHOW DATABASES;"
+            # might need to be tweaked for large initial state transfers
+            initialDelaySeconds: 60
+          volumeMounts:
+            - name: mariadb
+              mountPath: /data
+            - name: conf
+              mountPath: /etc/mysql/conf.d
+            - name: initdb
+              mountPath: /docker-entrypoint-initdb.d
+        # - name: metrics
+        #   image: prom/mysqld-exporter:v0.11.0@sha256:9f4fb61cca309cb4a8c1b9ed9fb4aa75af0f7a21f36d3954667db37c062a0172
+        #   env:
+        #     - name: DATA_SOURCE_NAME
+        #       value: root@(localhost:3306)/
+        #   ports:
+        #     - containerPort: 9104
+      volumes:
+        - name: conf
+          emptyDir: {}
+        - name: conf-readonly
+          configMap:
+            name: conf-d
+        - name: initdb
+          emptyDir: {}
+  volumeClaimTemplates:
+    - metadata:
+        name: mariadb
+      spec:
+        accessModes: ["ReadWriteOnce"]
+        resources:
+          requests:
+            storage: 10Gi
