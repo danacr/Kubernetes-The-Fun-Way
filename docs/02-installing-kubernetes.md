@@ -16,12 +16,14 @@ Once all machines are booted up, [please run tmux with synchronize panes enabled
 
 We will be running ceph, it is necessary to run a kernel which supports [RBD](http://docs.ceph.com/docs/jewel/man/8/rbd/). I had to build a new one because ours doesn't support it. Armbian offers a [kernel build tool](https://docs.armbian.com/Developer-Guide_Build-Preparation/) for supported devices.
 
-> I managed to successfully build the kernel on Ubuntu 19.04 using the docker option: `./compile.sh docker` (you don't need to build on an arm64 machine)
+> I managed to successfully build the kernel on Ubuntu 19.04: `./compile.sh` (you don't need to build on an arm64 machine)
+> Note, the `./compile.sh docker` option did not seem to work this time
 
 Download the precompiled kernel to all the devices and install it:
+
 ```
-wget https://github.com/danacr/kubernetes-the-fun-way/releases/download/v0.1/linux-image-next-sunxi64_5.89_arm64.deb
-dpkg -i linux-image-next-sunxi64_5.89_arm64.deb
+wget https://github.com/danacr/kubernetes-the-fun-way/releases/download/v0.3/linux-image-next-sunxi64_5.98_arm64.deb
+dpkg -i linux-image-next-sunxi64_5.98_arm64.deb
 ```
 
 It is also a good time to install lvm2, as it is a requirement for rook:
@@ -31,6 +33,7 @@ apt-get update && apt-get install -y lvm2
 ```
 
 To install Kubernetes, pick a node to be a master and run the following:
+
 ```
 curl -sfL https://get.k3s.io| sh -
 cat /var/lib/rancher/k3s/server/node-token
