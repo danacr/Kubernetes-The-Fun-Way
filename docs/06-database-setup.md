@@ -44,3 +44,5 @@ RestartSec=5s
 
 [Install]
 WantedBy=multi-user.target
+
+helm tiller run helm install --name heapster stable/heapster -f yamls/heapster.yml
