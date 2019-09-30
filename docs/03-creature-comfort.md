@@ -116,13 +116,13 @@ kubectl apply -f yamls/arm-dashboard.yaml
 Get the service account token using:
 
 ```
-kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep kubernetes-dashboard | awk '{print $1}')
+kubectl describe secret $(kubectl get secret | grep kubernetes-dashboard | awk '{print $1}')
 ```
 
 You can reach the dashboard using
 
 ```
-kubectl port-forward -n kube-system svc/kubernetes-dashboard 8443:443
+kubectl port-forward  svc/kubernetes-dashboard 8443:443
 ```
 
 and navigating to `https://localhost:8443`
