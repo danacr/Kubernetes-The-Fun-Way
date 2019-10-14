@@ -198,7 +198,7 @@ spec:
               protocol: TCP
           args:
             - --namespace=default
-            # - --enable-skip-login
+            - --enable-skip-login
             - --system-banner="Running on K3s"
             - --enable-insecure-login
             - --port=8444 # By default, https uses 8443 so we move it away to something else

@@ -33,21 +33,23 @@ Insert this line at the end:
 
 Now the storage will survive reboots. Let's get to the ceph installation.
 
-````
+```
 helm tiller run helm repo add rook-release https://charts.rook.io/release
 helm tiller run helm install  --namespace rook-ceph rook-release/rook-ceph --name rook-ceph --version v1.0.6
 ```
 
->Note, v1.0.6 is the last working version for our setup. This is what happens if you install post 1.10:
+> Note, v1.0.6 is the last working version for our setup. This is what happens if you install post 1.10:
+
 ```
 k logs -n rook-ceph csi-cephfsplugin-provisioner-68b89bfd6c-9c22n csi-cephfsplugin
 standard_init_linux.go:207: exec user process caused "exec format error"
 ```
+
 Some of the new components don't play well with arm64
 
 The next step is to install the [Ceph Cluster CRD](https://github.com/rook/rook/blob/master/Documentation/ceph-cluster-crd.md#ceph-cluster-crd).
 
-````
+```
 
 kubectl create -f yamls/cephcluster.yaml
 
@@ -93,5 +95,4 @@ Username is `admin`, the dashboard will be available at: https://localhost:8443/
 
 ![ceph](../images/ceph.png)
 
-Next: [Example Application](05-example-application.md)
-```
+Next: [Database setup](05-database-setup.md)
