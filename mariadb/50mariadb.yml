@@ -8,7 +8,7 @@ spec:
     matchLabels:
       app: mariadb
   serviceName: "mariadb"
-  replicas: 1
+  replicas: 2
   podManagementPolicy: OrderedReady
   template:
     metadata:
