@@ -1,0 +1,6 @@
+[submodule "02-kubernetes-operator-for-drones/drone-pod"]
+	path = 02-kubernetes-operator-for-drones/drone-pod
+	url = https://github.com/danacr/drone-pod
+[submodule "02-kubernetes-operator-for-drones/k8s-drone-controller"]
+	path = 02-kubernetes-operator-for-drones/k8s-drone-controller
+	url = https://github.com/danacr/k8s-drone-controller
