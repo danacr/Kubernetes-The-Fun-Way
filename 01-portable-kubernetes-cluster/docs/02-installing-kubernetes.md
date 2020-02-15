@@ -10,7 +10,7 @@ I strongly recommend spending the time and assigning static leases to your devic
 
 Once all machines are booted up, [please run tmux with synchronize panes enabled](https://github.com/kelseyhightower/kubernetes-the-hard-way/blob/master/docs/01-prerequisites.md#running-commands-in-parallel-with-tmux) to make sure you will be typing commands only once instead of copy pasting 6 times.
 
-![tmux](../images/tmux.png)
+![tmux](../images/tmux.gif)
 
 > Note, I am running all commands as root (BAD PRACTICE!!!). Only do this for development environments. You can set up your user account in Armbian on first boot, but I skipped this step.
 
@@ -60,5 +60,9 @@ k3s --debug agent --server https://MASTER_NODE_IP:6443 --token LONG_TOKEN
 ```
 
 I strongly recommend restarting your cluster at this point, to make sure it survives reboots.
+
+> Update: I've tested running all nodes as masters (both K3s and etcd) and this is how the network activity looked like
+
+![ETCD](../images/etcd.gif)
 
 Next: [Creature Comfort](03-creature-comfort.md)
