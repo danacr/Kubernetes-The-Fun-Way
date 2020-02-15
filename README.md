@@ -10,7 +10,7 @@ The episodes are inspired by my day to day work handling production scenarios an
 
 ## Episodes:
 
-- #### [02:](01-portable-kubernetes-cluster/) Kubernetes Operators for drones ([recording](https://www.youtube.com/watch?v=JPVgxnsvOs0) and [slides](https://docs.google.com/presentation/d/1VVZ1QPbae4Pnqr-sKEO4knL-2mwz-ijWt-AhJGu6EYQ/edit?usp=sharing))
+- #### [02:](02-kubernetes-operator-for-drones/) Kubernetes Operators for drones ([recording](https://www.youtube.com/watch?v=JPVgxnsvOs0) and [slides](https://docs.google.com/presentation/d/1VVZ1QPbae4Pnqr-sKEO4knL-2mwz-ijWt-AhJGu6EYQ/edit?usp=sharing))
 
   ![Drones](02-kubernetes-operator-for-drones/images/drones.gif)
   Building a Kubernetes operator for drones, attaching worker nodes to the drones, and launching them in the air
@@ -19,8 +19,6 @@ The episodes are inspired by my day to day work handling production scenarios an
 
   ![Cluster](01-portable-kubernetes-cluster/images/cluster.gif)
   Running a Kubernetes cluster on Arm64 single board computers in my living room and creating a ceph pool managed by Rook using USB Flash Drives just to run a Wordpress blog
-
-- #### 03: WIP
 
 ##### #kubernetes ![Dilbert](XX-random/dilbert.jpeg)
 
