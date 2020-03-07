@@ -2,7 +2,7 @@
 
 ## Update!
 
-    Episode 2 is live!
+    Episode 3 is live!
 
 Kubernetes the Fun Way is a collection of case studies in which Kubernetes and other cloud-native technologies are explored in unrealistic and (somewhat) ridiculous scenarios. The hope is to create a fun and inclusive learning environment
 
@@ -10,7 +10,12 @@ The episodes are inspired by my day to day work handling production scenarios an
 
 ## Episodes:
 
-- #### [02:](02-kubernetes-operator-for-drones/) Kubernetes Operators for drones ([recording](https://www.youtube.com/watch?v=JPVgxnsvOs0) and [slides](https://docs.google.com/presentation/d/1VVZ1QPbae4Pnqr-sKEO4knL-2mwz-ijWt-AhJGu6EYQ/edit?usp=sharing))
+- #### [03:](03-chaos-engineering-on-kubernetes/) Chaos Engineering on Kubernetes ([recording](https://www.youtube.com/watch?v=5JLOkjbkNg4) and [slides](https://docs.google.com/presentation/d/1jSparcqR4NsaG4yOnEbE7AxnNnr1xLVwkIBjbfKzc4k/edit?usp=sharing))
+
+  ![Chaos](03-chaos-engineering-on-kubernetes/images/chaos.gif)
+  Destroying virtual machines in a un-suspecting GKE cluster
+
+- #### [02:](02-kubernetes-operator-for-drones/) Kubernetes Operators for Drones ([recording](https://www.youtube.com/watch?v=JPVgxnsvOs0) and [slides](https://docs.google.com/presentation/d/1VVZ1QPbae4Pnqr-sKEO4knL-2mwz-ijWt-AhJGu6EYQ/edit?usp=sharing))
 
   ![Drones](02-kubernetes-operator-for-drones/images/drones.gif)
   Building a Kubernetes operator for drones, attaching worker nodes to the drones, and launching them in the air
