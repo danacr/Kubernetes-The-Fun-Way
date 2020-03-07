@@ -4,3 +4,12 @@
 [submodule "02-kubernetes-operator-for-drones/k8s-drone-controller"]
 	path = 02-kubernetes-operator-for-drones/k8s-drone-controller
 	url = https://github.com/danacr/k8s-drone-controller
+[submodule "03-chaos-engineering-on-kubernetes/k8s-disrupter-server"]
+	path = 03-chaos-engineering-on-kubernetes/k8s-disrupter-server
+	url = https://github.com/danacr/k8s-disrupter-server
+[submodule "03-chaos-engineering-on-kubernetes/k8s-disrupter"]
+	path = 03-chaos-engineering-on-kubernetes/k8s-disrupter
+	url = https://github.com/danacr/k8s-disrupter
+[submodule "03-chaos-engineering-on-kubernetes/survivor"]
+	path = 03-chaos-engineering-on-kubernetes/survivor
+	url = https://github.com/danacr/Survivor
