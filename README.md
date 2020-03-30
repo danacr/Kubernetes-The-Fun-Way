@@ -2,7 +2,7 @@
 
 ## Update!
 
-    Episode 4 will be presented live at [Virtual Rejekts](https://cfp.cloud-native.rejekts.io/virtual-rejekts-2020/talk/XDGMZR/)!
+#### Episode 4 will be presented live at [Virtual Rejekts](https://cfp.cloud-native.rejekts.io/virtual-rejekts-2020/talk/XDGMZR/)!
 
 Kubernetes the Fun Way is a collection of case studies in which Kubernetes and other cloud-native technologies are explored in unrealistic and (somewhat) ridiculous scenarios. The hope is to create a fun and inclusive learning environment
 
