@@ -2,7 +2,7 @@
 
 ## Triggering Virtual Machine destruction using Go
 
-> [Original repository](https://github.com/danacr/k8s-disrupter-server), I also added it as a [submodule](../k8s-disrupter-server/README.md), to this repository.
+> [Original repository](https://github.com/danacr/k8s-disrupter-server), I also added it as a submodule, to this repository.
 
 We need to create a small program that will listen to events and trigger disruptions when the right POST request is received.
 

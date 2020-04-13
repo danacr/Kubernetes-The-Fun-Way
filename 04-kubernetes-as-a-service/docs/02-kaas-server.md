@@ -2,7 +2,7 @@
 
 ## Ephemeral Kubernetes as a Service using Typhoon K8s on Digital Ocean
 
-> [Original repository](https://github.com/danacr/kaas), I also added it as a [submodule](../kaas/README.md), to this repository.
+> [Original repository](https://github.com/danacr/kaas), I also added it as a submodule, to this repository.
 
 Example request for a development cluster:
 

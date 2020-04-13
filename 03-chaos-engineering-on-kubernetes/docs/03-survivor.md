@@ -2,7 +2,7 @@
 
 Survivor is a simple [Go Blog](https://github.com/mikaelm1/Blog-App-Buffalo) built using [buffalo](https://github.com/gobuffalo/buffalo)
 
-> [Original repository](https://github.com/danacr/survivor), I also added it as a [submodule](../survivor/README.md), to this repository.
+> [Original repository](https://github.com/danacr/survivor), I also added it as a submodule, to this repository.
 
 I chose to fork and use this project because it Buffalo which allows me to create 27Mb docker images which contain all of the application assets.
 

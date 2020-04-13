@@ -2,7 +2,7 @@
 
 ## Controlling the drone using [Gobot](https://github.com/hybridgroup/gobot)
 
-> [Original repository](https://github.com/danacr/drone-pod), I also added it as a [submodule](../drone-pod/README.md), to this repository.
+> [Original repository](https://github.com/danacr/drone-pod), I also added it as a submodule, to this repository.
 
 We need to create a small script where we detect on which drone the node is attached to and then take off.
 

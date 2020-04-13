@@ -2,7 +2,7 @@
 
 Tiny bash setup script that creates Typhoon K8s clusters
 
-> [Original repository](https://github.com/danacr/simple-typhoon-k8s), I also added it as a [submodule](../simple-typhoon-k8s/README.md), to this repository.
+> [Original repository](https://github.com/danacr/simple-typhoon-k8s), I also added it as a submodule, to this repository.
 
 `create.sh` starts by generating and adding an ssh identity to your digital ocean account:
 

@@ -2,7 +2,7 @@
 
 ## Building Kubernetes Operators using [Kubebuilder](https://github.com/kubernetes-sigs/kubebuilder)
 
-> [Original repository](https://github.com/danacr/k8s-drone-controller), I also added it as a [submodule](../k8s-drone-controller/README.md), to this repository.
+> [Original repository](https://github.com/danacr/k8s-drone-controller), I also added it as a submodule, to this repository.
 
 Kubernetes operators are controllers that manage custom resources. In our case, we will implement a simple one where we have a Swarm Resource that is composed of individual Drones.
 
