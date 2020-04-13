@@ -13,3 +13,9 @@
 [submodule "03-chaos-engineering-on-kubernetes/survivor"]
 	path = 03-chaos-engineering-on-kubernetes/survivor
 	url = https://github.com/danacr/Survivor
+[submodule "04-kubernetes-as-a-service/simple-typhoon-k8s"]
+	path = 04-kubernetes-as-a-service/simple-typhoon-k8s
+	url = https://github.com/danacr/simple-typhoon-k8s
+[submodule "04-kubernetes-as-a-service/kaas"]
+	path = 04-kubernetes-as-a-service/kaas
+	url = https://github.com/danacr/kaas
