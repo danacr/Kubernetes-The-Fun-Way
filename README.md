@@ -1,6 +1,6 @@
 # Kubernetes The Fun Way
 
-#### Update: Episode 4 is live!
+#### Update: Episode [04:](04-kubernetes-as-a-service/) is live!
 
 Kubernetes the Fun Way is a collection of case studies in which Kubernetes and other cloud-native technologies are explored in unrealistic and (somewhat) ridiculous scenarios. The hope is to create a fun and inclusive learning environment
 
