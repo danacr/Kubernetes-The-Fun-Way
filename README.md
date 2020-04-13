@@ -2,13 +2,18 @@
 
 ## Update!
 
-#### Episode 4 will be presented live at [Virtual Rejekts](https://cfp.cloud-native.rejekts.io/virtual-rejekts-2020/talk/XDGMZR/)
+#### Episode 4 is live!
 
 Kubernetes the Fun Way is a collection of case studies in which Kubernetes and other cloud-native technologies are explored in unrealistic and (somewhat) ridiculous scenarios. The hope is to create a fun and inclusive learning environment
 
 The episodes are inspired by my day to day work handling production scenarios and are then reapplied with fun twists to create a fun learning environment where failure is the expected goal, as it lowers the barrier of entry.
 
 ## Episodes:
+
+- #### [04:](04-kubernetes-as-a-service/) Kubernetes as a Service ([recording](https://www.youtube.com/watch?v=cZEcdTOwV-A&feature=youtu.be&t=18200) and [slides](https://docs.google.com/presentation/d/1d7i4DqIV4K--jqLNlZVVJlSgOWu0HeSgVMHnaZtIPlc/edit))
+
+  ![KaaS](04-kubernetes-as-a-service/images/kaas.png)
+  Build your own Kubernetes as a Service
 
 - #### [03:](03-chaos-engineering-on-kubernetes/) Chaos Engineering on Kubernetes ([recording](https://www.youtube.com/watch?v=5JLOkjbkNg4) and [slides](https://docs.google.com/presentation/d/1jSparcqR4NsaG4yOnEbE7AxnNnr1xLVwkIBjbfKzc4k/edit?usp=sharing))
 
