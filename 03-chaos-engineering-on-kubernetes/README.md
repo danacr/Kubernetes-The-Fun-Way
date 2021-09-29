@@ -2,7 +2,7 @@
 
 #### Google Cloud Meetup Zürich [recording](https://www.youtube.com/watch?v=5JLOkjbkNg4) and [slides](https://docs.google.com/presentation/d/1VVZ1QPbae4Pnqr-sKEO4knL-2mwz-ijWt-AhJGu6EYQ/edit?usp=sharing)
 
-The purpose is to test the resiliance of applications running in ephemeral environments, such as GKE on preemptible instances.
+The purpose is to test the resilience of applications running in ephemeral environments, such as GKE on preemptible instances.
 
 ![Chaos](images/chaos.gif)
 
