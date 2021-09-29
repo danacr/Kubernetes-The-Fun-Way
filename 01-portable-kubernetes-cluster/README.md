@@ -1,6 +1,6 @@
 # Kubernetes The Fun Way
 
-#### Watch the Kubernetes The Fun Way Rancher Master Class [recording](https://www.youtube.com/watch?v=83oLS3mP7XQ) ([slides](https://docs.google.com/presentation/d/1RdEzRpNtCz1NRyWGr8kKeqVn6NNrAXfzvX8qxi4BanY/edit?usp=sharing))
+#### Watch the [Kubernetes The Fun Way Rancher Master Class](https://info.rancher.com/kubernetes-the-fun-way-online-training) [recording](https://www.youtube.com/watch?v=83oLS3mP7XQ) ([slides](https://docs.google.com/presentation/d/1RdEzRpNtCz1NRyWGr8kKeqVn6NNrAXfzvX8qxi4BanY/edit?usp=sharing))
 
 This tutorial was greatly inspired by [Kubernetes The Hard Way](https://github.com/kelseyhightower/kubernetes-the-hard-way) in order to bootstrap Kubernetes (K3s) on a [Pine64 Clusterboard](https://www.pine64.org/clusterboard/).
 
